@@ -1,0 +1,1 @@
+https://data.ct.gov/api/views/u6ds-fzyp/rows.json?accessType=DOWNLOAD
