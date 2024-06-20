@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Dashboard from './dashboard';
 import ScanAndManage from './scan_and_manage';
+import StockInsertion from './stock_insertion';
 
 function Page() {
   const [view, setView] = useState('login'); // Manage views: 'login', 'dashboard', 'scanAndManage'
@@ -24,6 +25,7 @@ function Page() {
     view === 'login' ? <Login onLogin={login} /> :
     view === 'dashboard' ? <Dashboard onNavigate={navigateTo} onLogout={() => navigateTo('login')} /> :
     view === 'scanAndManage' ? <ScanAndManage onBack={() => navigateTo('dashboard')} /> :
+    view === 'stockInsertion' ? <StockInsertion /> :
     null
   );
 }

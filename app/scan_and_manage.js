@@ -1,5 +1,5 @@
 // scan_and_manage.js
-import Card from './components/card';  // Assuming Card is a separate component
+import Card from './components/Card';  // Assuming Card is a separate component
 
 function ScanAndManage({ onBack }) {
   return (
