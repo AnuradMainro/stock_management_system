@@ -1,0 +1,55 @@
+{
+    "drinks": [
+      {
+        "SKU": "001",
+        "manufacturer": "Grey Goose",
+        "bottle_name": "Grey Goose Vodka"
+      },
+      {
+        "SKU": "002",
+        "manufacturer": "Jack Daniels",
+        "bottle_name": "Jack Daniels Tennessee Whiskey"
+      },
+      {
+        "SKU": "003",
+        "manufacturer": "Jose Cuervo",
+        "bottle_name": "Jose Cuervo Especial"
+      },
+      {
+        "SKU": "004",
+        "manufacturer": "Bacardi",
+        "bottle_name": "Bacardi Superior Rum"
+      },
+      {
+        "SKU": "005",
+        "manufacturer": "Johnnie Walker",
+        "bottle_name": "Johnnie Walker Black Label"
+      },
+      {
+        "SKU": "006",
+        "manufacturer": "Absolut",
+        "bottle_name": "Absolut Vodka"
+      },
+      {
+        "SKU": "007",
+        "manufacturer": "Tanqueray",
+        "bottle_name": "Tanqueray London Dry Gin"
+      },
+      {
+        "SKU": "008",
+        "manufacturer": "Patron",
+        "bottle_name": "Patron Silver Tequila"
+      },
+      {
+        "SKU": "009",
+        "manufacturer": "Jim Beam",
+        "bottle_name": "Jim Beam Bourbon"
+      },
+      {
+        "SKU": "010",
+        "manufacturer": "Hennessy",
+        "bottle_name": "Hennessy V.S Cognac"
+      }
+    ]
+  }
+  
