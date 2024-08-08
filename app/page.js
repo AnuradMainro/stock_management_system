@@ -23,7 +23,7 @@ function Page() {
     setView(page);
   };
 
-  return (
+   return (
     <AuthContextProvider>
       {view === "login" ? (
         <Login onLogin={login} />
@@ -35,9 +35,7 @@ function Page() {
       ) : view === "scanAndManage" ? (
         <ScanAndManage onBack={() => navigateTo("dashboard")} />
       ) : view === "stockInsertion" ? (
-        <StockInsertion />
-      ) : view === "stockReports" ? ( // Handling navigation to StockReports
-        <StockReports onBack={() => navigateTo("dashboard")} />
+        <StockInsertion onBack={() => navigateTo("dashboard")} />
       ) : null}
     </AuthContextProvider>
   );
