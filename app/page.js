@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Dashboard from "./dashboard";
 import ScanAndManage from "./scan_and_manage";
 import StockInsertion from "./stock_insertion";
+import StockReports from "./pages/stock-reports"; // Ensure this is correctly imported
 
 function Page() {
   const [view, setView] = useState("login");
@@ -35,6 +36,8 @@ function Page() {
         <ScanAndManage onBack={() => navigateTo("dashboard")} />
       ) : view === "stockInsertion" ? (
         <StockInsertion />
+      ) : view === "stockReports" ? ( // Handling navigation to StockReports
+        <StockReports onBack={() => navigateTo("dashboard")} />
       ) : null}
     </AuthContextProvider>
   );
