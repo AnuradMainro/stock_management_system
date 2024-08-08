@@ -34,7 +34,7 @@ function Page() {
       ) : view === "scanAndManage" ? (
         <ScanAndManage onBack={() => navigateTo("dashboard")} />
       ) : view === "stockInsertion" ? (
-        <StockInsertion />
+        <StockInsertion onBack={() => navigateTo("dashboard")} />
       ) : null}
     </AuthContextProvider>
   );
