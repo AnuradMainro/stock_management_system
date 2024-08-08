@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Dashboard from "./dashboard";
 import ScanAndManage from "./scan_and_manage";
 import StockInsertion from "./stock_insertion";
+import StockReports from "./pages/stock-reports"; // Ensure this is correctly imported
 
 function Page() {
   const [view, setView] = useState("login");
@@ -22,7 +23,7 @@ function Page() {
     setView(page);
   };
 
-  return (
+   return (
     <AuthContextProvider>
       {view === "login" ? (
         <Login onLogin={login} />
