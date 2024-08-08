@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 
-const ProductRow = ({ name, onIncrement, onDecrement, quantity }) => {
+const ProductRow = ({ id, name, onIncrement, onDecrement, onDelete, quantity }) => {
     return (
         <div className="flex justify-between items-center my-2 p-2 bg-purple-700 rounded">
             <span>{name}</span>
@@ -9,19 +9,15 @@ const ProductRow = ({ name, onIncrement, onDecrement, quantity }) => {
                 <button onClick={onDecrement} className="bg-yellow-600 p-1 mx-1">-</button>
                 <span className="mx-2">{quantity}</span>
                 <button onClick={onIncrement} className="bg-yellow-600 p-1 mx-1">+</button>
+                <button onClick={() => onDelete(id)} className="bg-red-600 p-1 mx-1">Delete</button>
             </div>
         </div>
     );
 };
 
 function StockInsertion({ onBack }) {
-    const [products, setProducts] = useState([
-        { id: 1, name: "Product Name", quantity: 0 },
-        { id: 2, name: "Product Name", quantity: 0 },
-        { id: 3, name: "Product Name", quantity: 0 },
-        { id: 4, name: "Product Name", quantity: 0 },
-        { id: 5, name: "Product Name", quantity: 0 }
-    ]);
+    const [products, setProducts] = useState([]);  // Start with an empty array
+    const [newProductName, setNewProductName] = useState("");
 
     const incrementQuantity = (id) => {
         const newProducts = products.map(product => {
@@ -43,8 +39,19 @@ function StockInsertion({ onBack }) {
         setProducts(newProducts);
     };
 
-    const handleReceive = () => {
-        console.log("Received inventory: ", products);
+    const handleDelete = (id) => {
+        const newProducts = products.filter(product => product.id !== id);
+        setProducts(newProducts);
+    };
+
+    const addProduct = () => {
+        const newProduct = {
+            id: products.reduce((maxId, product) => Math.max(product.id, maxId), 0) + 1,  // Ensures a unique ID
+            name: newProductName,
+            quantity: 0
+        };
+        setProducts([...products, newProduct]);
+        setNewProductName(""); // Reset the input field
     };
 
     return (
@@ -52,23 +59,27 @@ function StockInsertion({ onBack }) {
             <div className="flex justify-between items-center mb-4">
                 <input 
                     type="text" 
-                    placeholder="Search for product" 
-                    className="p-2 rounded bg-purple-700" 
+                    placeholder="Enter new product name"
+                    className="p-2 rounded bg-purple-700 flex-grow"
+                    value={newProductName}
+                    onChange={(e) => setNewProductName(e.target.value)}
                 />
-                <button onClick={onBack} className="bg-yellow-600 p-2 rounded">Back</button>
+                <button onClick={addProduct} className="bg-yellow-600 p-2 ml-2 rounded">Add</button>
+                <button onClick={onBack} className="bg-yellow-600 p-2 ml-2 rounded">Back</button>
             </div>
             <div>
                 {products.map((product) => (
                     <ProductRow
                         key={product.id}
+                        id={product.id}
                         name={product.name}
                         quantity={product.quantity}
                         onIncrement={() => incrementQuantity(product.id)}
                         onDecrement={() => decrementQuantity(product.id)}
+                        onDelete={handleDelete}
                     />
                 ))}
             </div>
-            <button onClick={handleReceive} className="w-full mt-4 bg-yellow-600 p-3 rounded">Receive</button>
         </div>
     );
 }
