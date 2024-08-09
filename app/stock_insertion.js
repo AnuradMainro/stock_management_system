@@ -1,16 +1,17 @@
+
 import React, { useState, useEffect } from 'react';
-import { getDatabase, ref, onValue, update } from "firebase/database";
+import { getDatabase, ref, onValue, update, increment } from "firebase/database";
 import app from './_utils/firebase';
 
 const ProductRow = ({ id, name, onIncrement, onDecrement, onDelete, quantity }) => {
     return (
-        <div className="flex justify-between items-center my-2 p-2 bg-purple-700 rounded">
+        <div className="flex justify-between items-center text-white my-2 p-2 bg-purple-700 rounded">
             <span>{name}</span>
             <div>
                 <button onClick={onDecrement} className="bg-yellow-600 p-1 mx-1">-</button>
-                <span className="mx-2">{quantity}</span>
+                <span className="mx-2 text-white">{quantity}</span>
                 <button onClick={onIncrement} className="bg-yellow-600 p-1 mx-1">+</button>
-                <button onClick={() => onDelete(id)} className="bg-red-600 p-1 mx-1">Delete</button>
+                <button onClick={() => onDelete(id)} className="bg-red-600 text-white p-1 mx-1">Delete</button>
             </div>
         </div>
     );
@@ -44,7 +45,7 @@ function StockInsertion({ onBack }) {
         } else {
             setProducts([...products, { ...drink, quantity: 1, firebaseId: drink.firebaseId }]);
         }
-        setSearchTerm('');
+        setSearchTerm(''); // Clear the search input after adding
     };
 
     const incrementQuantity = (firebaseId) => {
@@ -73,9 +74,10 @@ function StockInsertion({ onBack }) {
 
     const updateData = () => {
         const db = getDatabase(app);
-        let updates = {};
+        const updates = {};
         products.forEach(product => {
-            updates[`/drinks/${product.firebaseId}/quantity`] = product.quantity;
+            // Using increment to update the quantity atomically
+            updates[`/drinks/${product.firebaseId}/quantity`] = increment(product.quantity);
         });
         update(ref(db), updates)
             .then(() => alert('Inventory updated successfully!'))
@@ -88,7 +90,7 @@ function StockInsertion({ onBack }) {
     const filteredDrinks = drinks.filter(drink => drink.bottle_name.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-purple-500 to-[#0F0529] text-black p-4">
+        <div className="min-h-screen bg-gradient-to-b from-purple-500 to-[#0F0529] text-white p-4">
             <button onClick={onBack} className="bg-yellow-600 p-2 ml-2 rounded">Back</button>
             <input 
                 type="text" 
