@@ -39,8 +39,8 @@ function Page() {
       )}
       {view === "scanAndManage" && (
         <ScanAndManage
-          onNavigate={navigateTo} // Passing onNavigate to ScanAndManage
-          onBack={() => navigateTo("dashboard")}
+          onNavigate={navigateTo} // Ensuring ScanAndManage has navigation capability
+          onBack={() => navigateTo("dashboard")} // Ensures it can navigate back to the dashboard
         />
       )}
       {view === "stockInsertion" && (
@@ -55,7 +55,7 @@ function Page() {
       {view === "categoryDrinks" && (
         <CategoryDrinks
           category={selectedCategory}
-          onBack={() => navigateTo("stockReports")}
+          onBack={() => navigateTo("stockReports")} // Ensure proper back navigation from CategoryDrinks
         />
       )}
     </AuthContextProvider>
