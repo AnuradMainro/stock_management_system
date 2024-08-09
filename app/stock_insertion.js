@@ -221,15 +221,18 @@ function StockInsertion({ onBack }) {
     );
 
     return (
-        <div className="min-h-screen bg-[#0f0529] text-white p-4">
-            <button onClick={onBack} className="bg-[#ca8a04] p-2 ml-2 rounded">Back</button>
-            <input 
-                type="text" 
-                placeholder="Enter product name or SKU"
-                className="p-2 rounded bg-white flex-grow"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
+        <div className="min-h-screen bg-[#0f0529] text-black p-4">
+           <div className="flex justify-between items-center mb-4">
+                <input 
+                    type="text" 
+                    placeholder="Enter product name or SKU" 
+                    className="p-2 rounded bg-white flex-grow" 
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <button onClick={onBack} className="bg-[#ca8a04] p-2 ml-2 rounded">Back</button>
+            </div>
+
             {searchTerm && (
                 <div className="absolute bg-white text-black max-h-40 overflow-auto w-full">
                     {filteredDrinks.map(drink => (
