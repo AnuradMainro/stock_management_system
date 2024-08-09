@@ -26,7 +26,7 @@ function Login({ onLogin }) {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-purple-800">
+    <div className="flex justify-center items-center h-screen bg-gradient-to-b from-purple-500 to-[#0F0529]">
       <div className="p-8 bg-white rounded shadow-md text-center">
         <h1 className="text-lg font-bold text-yellow-600 mb-6">
           Stock Management
