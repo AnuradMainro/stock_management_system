@@ -16,7 +16,7 @@ function StockReports({ onSelectCategory, onBack }) {
   }, []);
 
   return (
-    <div className="bg-purple-800 min-h-screen p-4 text-white">
+    <div className="bg-gradient-to-b from-purple-500 to-[#0F0529] min-h-screen p-4 text-white">
       <button
         onClick={onBack}
         className="bg-yellow-600 p-2 rounded hover:bg-yellow-700"

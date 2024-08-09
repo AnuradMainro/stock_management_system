@@ -75,12 +75,12 @@ function StockInsertion({ onBack }) {
     const filteredDrinks = drinks.filter(drink => drink.bottle_name.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
-        <div className="min-h-screen bg-purple-800 text-white p-4">
+        <div className="min-h-screen bg-gradient-to-b from-purple-500 to-[#0F0529] text-white p-4">
             <div className="flex justify-between items-center mb-4">
                 <input 
                     type="text" 
                     placeholder="Enter product name"
-                    className="p-2 rounded bg-purple-700 flex-grow"
+                    className="p-2 rounded bg-white flex-grow"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
