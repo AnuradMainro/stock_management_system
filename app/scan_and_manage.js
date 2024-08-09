@@ -95,7 +95,7 @@ function ScanAndManage({ onBack, onNavigate }) {
     const filteredDrinks = drinks.filter(drink => drink.bottle_name.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
-        <div className="h-screen bg-[#0f0529] to-[#0F0529] text-white p-4">
+        <div className="h-screen bg-[#0f0529] to-[#0F0529] text-black p-4">
             <div className="flex justify-between items-center mb-4">
                 <input 
                     type="text" 
