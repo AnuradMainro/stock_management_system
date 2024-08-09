@@ -5,12 +5,12 @@ import app from './_utils/firebase';
 
 const ProductRow = ({ id, name, onIncrement, onDecrement, onDelete, quantity }) => {
     return (
-        <div className="flex justify-between items-center text-white my-2 p-2 bg-purple-700 rounded">
+        <div className="flex justify-between items-center text-white my-2 p-2 bg-[#0f0529] rounded">
             <span>{name}</span>
             <div>
-                <button onClick={onDecrement} className="bg-yellow-600 p-1 mx-1">-</button>
+                <button onClick={onDecrement} className="bg-[#ca8a04] p-1 mx-1">-</button>
                 <span className="mx-2 text-white">{quantity}</span>
-                <button onClick={onIncrement} className="bg-yellow-600 p-1 mx-1">+</button>
+                <button onClick={onIncrement} className="bg-[#ca8a04] p-1 mx-1">+</button>
                 <button onClick={() => onDelete(id)} className="bg-red-600 text-white p-1 mx-1">Delete</button>
             </div>
         </div>
@@ -90,8 +90,8 @@ function StockInsertion({ onBack }) {
     const filteredDrinks = drinks.filter(drink => drink.bottle_name.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-purple-500 to-[#0F0529] text-white p-4">
-            <button onClick={onBack} className="bg-yellow-600 p-2 ml-2 rounded">Back</button>
+        <div className="min-h-screen bg-[#0f0529] text-white p-4">
+            <button onClick={onBack} className="bg-[#ca8a04] p-2 ml-2 rounded">Back</button>
             <input 
                 type="text" 
                 placeholder="Enter product name"
@@ -121,7 +121,7 @@ function StockInsertion({ onBack }) {
                     />
                 ))}
             </div>
-            <button onClick={updateData} className="mt-4 bg-yellow-600 p-2 rounded w-full">Receive</button>
+            <button onClick={updateData} className="mt-4 bg-[#ca8a04] p-2 rounded w-full">Receive</button>
         </div>
     );
 }
