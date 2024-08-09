@@ -1,125 +1,654 @@
-// {
-//   "drinks": [
-//       {
-//           "SKU": "001",
-//           "category": "Vodka",
-//           "manufacturer": "Grey Goose",
-//           "bottle_name": "Grey Goose Vodka",
-//           "volume": "750ml",
-//           "price": "$30",
-//           "description": {
-//               "alcohol_percentage": "40%",
-//               "notes": "Smooth, soft, and balanced with a clean finish."
-//           }
-//       },
-//       {
-//           "SKU": "002",
-//           "category": "Whiskey",
-//           "manufacturer": "Jack Daniels",
-//           "bottle_name": "Jack Daniels Tennessee Whiskey",
-//           "volume": "750ml",
-//           "price": "$25",
-//           "description": {
-//               "alcohol_percentage": "45%",
-//               "notes": "Rich, sweet, with a spicy oak finish."
-//           }
-//       },
-//       {
-//           "SKU": "003",
-//           "category": "Tequila",
-//           "manufacturer": "Jose Cuervo",
-//           "bottle_name": "Jose Cuervo Especial",
-//           "volume": "750ml",
-//           "price": "$18",
-//           "description": {
-//               "alcohol_percentage": "35%",
-//               "notes": "Smooth with sweet and woody flavors."
-//           }
-//       },
-//       {
-//           "SKU": "004",
-//           "category": "Rum",
-//           "manufacturer": "Bacardi",
-//           "bottle_name": "Bacardi Superior Rum",
-//           "volume": "750ml",
-//           "price": "$15",
-//           "description": {
-//               "alcohol_percentage": "40%",
-//               "notes": "Clean and crisp with subtle citrus flavors."
-//           }
-//       },
-//       {
-//           "SKU": "005",
-//           "category": "Whiskey",
-//           "manufacturer": "Johnnie Walker",
-//           "bottle_name": "Johnnie Walker Black Label",
-//           "volume": "750ml",
-//           "price": "$40",
-//           "description": {
-//               "alcohol_percentage": "40%",
-//               "notes": "Complex and well-balanced with deep smoky flavors."
-//           }
-//       },
-//       {
-//           "SKU": "006",
-//           "category": "Vodka",
-//           "manufacturer": "Absolut",
-//           "bottle_name": "Absolut Vodka",
-//           "volume": "750ml",
-//           "price": "$20",
-//           "description": {
-//               "alcohol_percentage": "40%",
-//               "notes": "Rich, full-bodied and complex, yet smooth and mellow."
-//           }
-//       },
-//       {
-//           "SKU": "007",
-//           "category": "Gin",
-//           "manufacturer": "Tanqueray",
-//           "bottle_name": "Tanqueray London Dry Gin",
-//           "volume": "750ml",
-//           "price": "$22",
-//           "description": {
-//               "alcohol_percentage": "47.3%",
-//               "notes": "Clear, pungent, and herbal with aggressive flavors."
-//           }
-//       },
-//       {
-//           "SKU": "008",
-//           "category": "Tequila",
-//           "manufacturer": "Patron",
-//           "bottle_name": "Patron Silver Tequila",
-//           "volume": "750ml",
-//           "price": "$45",
-//           "description": {
-//               "alcohol_percentage": "40%",
-//               "notes": "Smooth and sweet with a light pepper finish."
-//           }
-//       },
-//       {
-//           "SKU": "009",
-//           "category": "Bourbon",
-//           "manufacturer": "Jim Beam",
-//           "bottle_name": "Jim Beam Bourbon",
-//           "volume": "750ml",
-//           "price": "$18",
-//           "description": {
-//               "alcohol_percentage": "40%",
-//               "notes": "Oak vanilla, spicy backdrop."
-//           }
-//       },
-//       {
-//           "SKU": "010",
-//           "category": "Cognac",
-//           "manufacturer": "Hennessy",
-//           "bottle_name": "Hennessy V.S Cognac",
-//           "volume": "750ml",
-//           "price": "$30",
-//           "description": {
-//               "alcohol_percentage": "40%",
-//               "notes": "Rich fruit and spice notes framed by freshness."
-//           }
-//       }
-//   ]
-// }
-
+{
+  "drinks": [
+    {
+      "SKU": "001",
+      "category": "Vodka",
+      "manufacturer": "Grey Goose",
+      "bottle_name": "Grey Goose Vodka",
+      "volume": "750ml",
+      "price": "$30",
+      "quantity": 95,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Smooth, soft, and balanced with a clean finish."
+      }
+    },
+    {
+      "SKU": "002",
+      "category": "Whiskey",
+      "manufacturer": "Jack Daniels",
+      "bottle_name": "Jack Daniels Tennessee Whiskey",
+      "volume": "750ml",
+      "price": "$25",
+      "quantity": 80,
+      "description": {
+        "alcohol_percentage": "45%",
+        "notes": "Rich, sweet, with a spicy oak finish."
+      }
+    },
+    {
+      "SKU": "003",
+      "category": "Tequila",
+      "manufacturer": "Jose Cuervo",
+      "bottle_name": "Jose Cuervo Especial",
+      "volume": "750ml",
+      "price": "$18",
+      "quantity": 60,
+      "description": {
+        "alcohol_percentage": "35%",
+        "notes": "Smooth with sweet and woody flavors."
+      }
+    },
+    {
+      "SKU": "004",
+      "category": "Rum",
+      "manufacturer": "Bacardi",
+      "bottle_name": "Bacardi Superior Rum",
+      "volume": "750ml",
+      "price": "$15",
+      "quantity": 50,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Clean and crisp with subtle citrus flavors."
+      }
+    },
+    {
+      "SKU": "005",
+      "category": "Whiskey",
+      "manufacturer": "Johnnie Walker",
+      "bottle_name": "Johnnie Walker Black Label",
+      "volume": "750ml",
+      "price": "$40",
+      "quantity": 30,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Complex and well-balanced with deep smoky flavors."
+      }
+    },
+    {
+      "SKU": "006",
+      "category": "Vodka",
+      "manufacturer": "Absolut",
+      "bottle_name": "Absolut Vodka",
+      "volume": "750ml",
+      "price": "$20",
+      "quantity": 70,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Rich, full-bodied and complex, yet smooth and mellow."
+      }
+    },
+    {
+      "SKU": "007",
+      "category": "Gin",
+      "manufacturer": "Tanqueray",
+      "bottle_name": "Tanqueray London Dry Gin",
+      "volume": "750ml",
+      "price": "$22",
+      "quantity": 88,
+      "description": {
+        "alcohol_percentage": "47.3%",
+        "notes": "Clear, pungent, and herbal with aggressive flavors."
+      }
+    },
+    {
+      "SKU": "008",
+      "category": "Tequila",
+      "manufacturer": "Patron",
+      "bottle_name": "Patron Silver Tequila",
+      "volume": "750ml",
+      "price": "$45",
+      "quantity": 40,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Smooth and sweet with a light pepper finish."
+      }
+    },
+    {
+      "SKU": "009",
+      "category": "Bourbon",
+      "manufacturer": "Jim Beam",
+      "bottle_name": "Jim Beam Bourbon",
+      "volume": "750ml",
+      "price": "$18",
+      "quantity": 25,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Oak vanilla, spicy backdrop."
+      }
+    },
+    {
+      "SKU": "010",
+      "category": "Cognac",
+      "manufacturer": "Hennessy",
+      "bottle_name": "Hennessy V.S Cognac",
+      "volume": "750ml",
+      "price": "$30",
+      "quantity": 55,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Rich fruit and spice notes framed by freshness."
+      }
+    },
+    {
+      "SKU": "011",
+      "category": "Beer",
+      "manufacturer": "Molson Canadian",
+      "bottle_name": "Molson Canadian Lager",
+      "volume": "355ml",
+      "price": "$3",
+      "quantity": 200,
+      "description": {
+        "alcohol_percentage": "5%",
+        "notes": "Light, crisp, and refreshing."
+      }
+    },
+    {
+      "SKU": "012",
+      "category": "Beer",
+      "manufacturer": "Labatt Blue",
+      "bottle_name": "Labatt Blue Pilsner",
+      "volume": "355ml",
+      "price": "$3",
+      "quantity": 190,
+      "description": {
+        "alcohol_percentage": "5%",
+        "notes": "Smooth with a slight sweetness and hop bitterness."
+      }
+    },
+    {
+      "SKU": "013",
+      "category": "Beer",
+      "manufacturer": "Alexander Keith's",
+      "bottle_name": "Alexander Keith's IPA",
+      "volume": "355ml",
+      "price": "$3",
+      "quantity": 180,
+      "description": {
+        "alcohol_percentage": "5%",
+        "notes": "Bitter with floral and citrus notes."
+      }
+    },
+    {
+      "SKU": "014",
+      "category": "Cooler",
+      "manufacturer": "Mike's Hard Lemonade",
+      "bottle_name": "Mike's Hard Lemonade",
+      "volume": "355ml",
+      "price": "$4",
+      "quantity": 150,
+      "description": {
+        "alcohol_percentage": "5%",
+        "notes": "Sweet and tart with a refreshing lemon flavor."
+      }
+    },
+    {
+      "SKU": "015",
+      "category": "Cooler",
+      "manufacturer": "Smirnoff Ice",
+      "bottle_name": "Smirnoff Ice",
+      "volume": "355ml",
+      "price": "$4",
+      "quantity": 160,
+      "description": {
+        "alcohol_percentage": "5%",
+        "notes": "Crisp and citrusy with a refreshing taste."
+      }
+    },
+    {
+      "SKU": "016",
+      "category": "Vodka",
+      "manufacturer": "Smirnoff",
+      "bottle_name": "Smirnoff Vodka",
+      "volume": "750ml",
+      "price": "$15",
+      "quantity": 100,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Clean and neutral with a smooth finish."
+      }
+    },
+    {
+      "SKU": "017",
+      "category": "Whiskey",
+      "manufacturer": "Crown Royal",
+      "bottle_name": "Crown Royal Canadian Whisky",
+      "volume": "750ml",
+      "price": "$35",
+      "quantity": 60,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Rich and robust with notes of vanilla and oak."
+      }
+    },
+    {
+      "SKU": "018",
+      "category": "Rum",
+      "manufacturer": "Captain Morgan",
+      "bottle_name": "Captain Morgan Spiced Rum",
+      "volume": "750ml",
+      "price": "$20",
+      "quantity": 75,
+      "description": {
+        "alcohol_percentage": "35%",
+        "notes": "Sweet and spicy with a smooth finish."
+      }
+    },
+    {
+      "SKU": "019",
+      "category": "Gin",
+      "manufacturer": "Bombay Sapphire",
+      "bottle_name": "Bombay Sapphire Gin",
+      "volume": "750ml",
+      "price": "$25",
+      "quantity": 70,
+      "description": {
+        "alcohol_percentage": "47%",
+        "notes": "Aromatic with a rich, peppery finish."
+      }
+    },
+    {
+      "SKU": "020",
+      "category": "Cider",
+      "manufacturer": "Strongbow",
+      "bottle_name": "Strongbow Apple Cider",
+      "volume": "355ml",
+      "price": "$4",
+      "quantity": 140,
+      "description": {
+        "alcohol_percentage": "5%",
+        "notes": "Crisp and refreshing with a hint of sweetness."
+      }
+    },
+    {
+      "SKU": "021",
+      "category": "Whiskey",
+      "manufacturer": "Jameson",
+      "bottle_name": "Jameson Irish Whiskey",
+      "volume": "750ml",
+      "price": "$30",
+      "quantity": 65,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Smooth with light floral notes and spicy wood."
+      }
+    },
+    {
+      "SKU": "022",
+      "category": "Vodka",
+      "manufacturer": "Ketel One",
+      "bottle_name": "Ketel One Vodka",
+      "volume": "750ml",
+      "price": "$28",
+      "quantity": 80,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Smooth and crisp with a long finish."
+      }
+    },
+    {
+      "SKU": "023",
+      "category": "Tequila",
+      "manufacturer": "1800 Tequila",
+      "bottle_name": "1800 Reposado",
+      "volume": "750ml",
+      "price": "$35",
+      "quantity": 50,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Rich with hints of vanilla and butterscotch."
+      }
+    },
+    {
+      "SKU": "024",
+      "category": "Beer",
+      "manufacturer": "Corona",
+      "bottle_name": "Corona Extra",
+      "volume": "355ml",
+      "price": "$4",
+      "quantity": 190,
+      "description": {
+        "alcohol_percentage": "4.6%",
+        "notes": "Light and crisp with a refreshing taste."
+      }
+    },
+    {
+      "SKU": "025",
+      "category": "Beer",
+      "manufacturer": "Heineken",
+      "bottle_name": "Heineken Lager",
+      "volume": "355ml",
+      "price": "$4",
+      "quantity": 200,
+      "description": {
+        "alcohol_percentage": "5%",
+        "notes": "Smooth with a balanced bitterness."
+      }
+    },
+    {
+      "SKU": "026",
+      "category": "Gin",
+      "manufacturer": "Hendrick's",
+      "bottle_name": "Hendrick's Gin",
+      "volume": "750ml",
+      "price": "$35",
+      "quantity": 50,
+      "description": {
+        "alcohol_percentage": "44%",
+        "notes": "Floral with a crisp cucumber finish."
+      }
+    },
+    {
+      "SKU": "027",
+      "category": "Whiskey",
+      "manufacturer": "Wild Turkey",
+      "bottle_name": "Wild Turkey 101",
+      "volume": "750ml",
+      "price": "$30",
+      "quantity": 45,
+      "description": {
+        "alcohol_percentage": "50.5%",
+        "notes": "Rich and full-bodied with caramel and vanilla."
+      }
+    },
+    {
+      "SKU": "028",
+      "category": "Cognac",
+      "manufacturer": "Courvoisier",
+      "bottle_name": "Courvoisier VS Cognac",
+      "volume": "750ml",
+      "price": "$35",
+      "quantity": 55,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Fruity with a smooth, lingering finish."
+      }
+    },
+    {
+      "SKU": "029",
+      "category": "Tequila",
+      "manufacturer": "El Jimador",
+      "bottle_name": "El Jimador Blanco",
+      "volume": "750ml",
+      "price": "$25",
+      "quantity": 75,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Fresh with citrus and pepper notes."
+      }
+    },
+    {
+      "SKU": "030",
+      "category": "Beer",
+      "manufacturer": "Coors",
+      "bottle_name": "Coors Light",
+      "volume": "355ml",
+      "price": "$3",
+      "quantity": 210,
+      "description": {
+        "alcohol_percentage": "4.2%",
+        "notes": "Light and crisp with a refreshing taste."
+      }
+    },
+    {
+      "SKU": "031",
+      "category": "Rum",
+      "manufacturer": "Malibu",
+      "bottle_name": "Malibu Coconut Rum",
+      "volume": "750ml",
+      "price": "$20",
+      "quantity": 60,
+      "description": {
+        "alcohol_percentage": "21%",
+        "notes": "Sweet and tropical with coconut flavor."
+      }
+    },
+    {
+      "SKU": "032",
+      "category": "Cooler",
+      "manufacturer": "Breezer",
+      "bottle_name": "Bacardi Breezer Orange",
+      "volume": "355ml",
+      "price": "$4",
+      "quantity": 150,
+      "description": {
+        "alcohol_percentage": "4%",
+        "notes": "Fruity and refreshing with a sweet orange flavor."
+      }
+    },
+    {
+      "SKU": "033",
+      "category": "Beer",
+      "manufacturer": "Guinness",
+      "bottle_name": "Guinness Draught",
+      "volume": "440ml",
+      "price": "$5",
+      "quantity": 130,
+      "description": {
+        "alcohol_percentage": "4.2%",
+        "notes": "Rich and creamy with a smooth finish."
+      }
+    },
+    {
+      "SKU": "034",
+      "category": "Whiskey",
+      "manufacturer": "Glenfiddich",
+      "bottle_name": "Glenfiddich 12 Year Old",
+      "volume": "750ml",
+      "price": "$50",
+      "quantity": 40,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Smooth and fruity with a touch of oak."
+      }
+    },
+    {
+      "SKU": "035",
+      "category": "Cider",
+      "manufacturer": "Angry Orchard",
+      "bottle_name": "Angry Orchard Crisp Apple",
+      "volume": "355ml",
+      "price": "$4",
+      "quantity": 150,
+      "description": {
+        "alcohol_percentage": "5%",
+        "notes": "Sweet with a hint of tartness."
+      }
+    },
+    {
+      "SKU": "036",
+      "category": "Vodka",
+      "manufacturer": "Belvedere",
+      "bottle_name": "Belvedere Vodka",
+      "volume": "750ml",
+      "price": "$35",
+      "quantity": 50,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Smooth with a subtle sweetness and a crisp finish."
+      }
+    },
+    {
+      "SKU": "037",
+      "category": "Whiskey",
+      "manufacturer": "Maker's Mark",
+      "bottle_name": "Maker's Mark Bourbon",
+      "volume": "750ml",
+      "price": "$35",
+      "quantity": 55,
+      "description": {
+        "alcohol_percentage": "45%",
+        "notes": "Rich and full-bodied with caramel and vanilla notes."
+      }
+    },
+    {
+      "SKU": "038",
+      "category": "Gin",
+      "manufacturer": "Beefeater",
+      "bottle_name": "Beefeater London Dry Gin",
+      "volume": "750ml",
+      "price": "$20",
+      "quantity": 70,
+      "description": {
+        "alcohol_percentage": "47%",
+        "notes": "Crisp and clean with a juniper-forward flavor."
+      }
+    },
+    {
+      "SKU": "039",
+      "category": "Beer",
+      "manufacturer": "Budweiser",
+      "bottle_name": "Budweiser Lager",
+      "volume": "355ml",
+      "price": "$3",
+      "quantity": 220,
+      "description": {
+        "alcohol_percentage": "5%",
+        "notes": "Crisp and smooth with a balanced flavor."
+      }
+    },
+    {
+      "SKU": "040",
+      "category": "Rum",
+      "manufacturer": "Mount Gay",
+      "bottle_name": "Mount Gay Eclipse Rum",
+      "volume": "750ml",
+      "price": "$22",
+      "quantity": 60,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Smooth and complex with notes of vanilla and spice."
+      }
+    },
+    {
+      "SKU": "041",
+      "category": "Cider",
+      "manufacturer": "Somersby",
+      "bottle_name": "Somersby Apple Cider",
+      "volume": "355ml",
+      "price": "$4",
+      "quantity": 140,
+      "description": {
+        "alcohol_percentage": "4.5%",
+        "notes": "Sweet and refreshing with a crisp apple flavor."
+      }
+    },
+    {
+      "SKU": "042",
+      "category": "Whiskey",
+      "manufacturer": "Chivas Regal",
+      "bottle_name": "Chivas Regal 12 Year Old",
+      "volume": "750ml",
+      "price": "$45",
+      "quantity": 50,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Rich and smooth with a honeyed fruit flavor."
+      }
+    },
+    {
+      "SKU": "043",
+      "category": "Cooler",
+      "manufacturer": "Twisted Tea",
+      "bottle_name": "Twisted Tea Original",
+      "volume": "355ml",
+      "price": "$4",
+      "quantity": 150,
+      "description": {
+        "alcohol_percentage": "5%",
+        "notes": "Sweet and refreshing with a real brewed tea flavor."
+      }
+    },
+    {
+      "SKU": "044",
+      "category": "Vodka",
+      "manufacturer": "Ciroc",
+      "bottle_name": "Ciroc Vodka",
+      "volume": "750ml",
+      "price": "$40",
+      "quantity": 60,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Smooth and crisp with a clean finish."
+      }
+    },
+    {
+      "SKU": "045",
+      "category": "Beer",
+      "manufacturer": "Stella Artois",
+      "bottle_name": "Stella Artois Lager",
+      "volume": "355ml",
+      "price": "$4",
+      "quantity": 190,
+      "description": {
+        "alcohol_percentage": "5%",
+        "notes": "Smooth and refreshing with a slightly bitter finish."
+      }
+    },
+    {
+      "SKU": "046",
+      "category": "Whiskey",
+      "manufacturer": "Bulleit",
+      "bottle_name": "Bulleit Bourbon",
+      "volume": "750ml",
+      "price": "$35",
+      "quantity": 50,
+      "description": {
+        "alcohol_percentage": "45%",
+        "notes": "Spicy and bold with a smooth finish."
+      }
+    },
+    {
+      "SKU": "047",
+      "category": "Cider",
+      "manufacturer": "Rekorderlig",
+      "bottle_name": "Rekorderlig Strawberry-Lime Cider",
+      "volume": "355ml",
+      "price": "$5",
+      "quantity": 130,
+      "description": {
+        "alcohol_percentage": "4.5%",
+        "notes": "Sweet and refreshing with a blend of strawberries and lime."
+      }
+    },
+    {
+      "SKU": "048",
+      "category": "Vodka",
+      "manufacturer": "Tito's",
+      "bottle_name": "Tito's Handmade Vodka",
+      "volume": "750ml",
+      "price": "$25",
+      "quantity": 80,
+      "description": {
+        "alcohol_percentage": "40%",
+        "notes": "Smooth and clean with a subtle sweetness."
+      }
+    },
+    {
+      "SKU": "049",
+      "category": "Beer",
+      "manufacturer": "Sapporo",
+      "bottle_name": "Sapporo Premium Beer",
+      "volume": "355ml",
+      "price": "$4",
+      "quantity": 180,
+      "description": {
+        "alcohol_percentage": "5%",
+        "notes": "Crisp and refreshing with a clean finish."
+      }
+    },
+    {
+      "SKU": "050",
+      "category": "Gin",
+      "manufacturer": "Plymouth",
+      "bottle_name": "Plymouth Gin",
+      "volume": "750ml",
+      "price": "$30",
+      "quantity": 50,
+      "description": {
+        "alcohol_percentage": "41.2%",
+        "notes": "Smooth and full-bodied with a sweet finish."
+      }
+    }
+  ]
+}
