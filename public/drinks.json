@@ -1,124 +1,125 @@
-{
-  "drinks": [
-      {
-          "SKU": "001",
-          "category": "Vodka",
-          "manufacturer": "Grey Goose",
-          "bottle_name": "Grey Goose Vodka",
-          "volume": "750ml",
-          "price": "$30",
-          "description": {
-              "alcohol_percentage": "40%",
-              "notes": "Smooth, soft, and balanced with a clean finish."
-          }
-      },
-      {
-          "SKU": "002",
-          "category": "Whiskey",
-          "manufacturer": "Jack Daniels",
-          "bottle_name": "Jack Daniels Tennessee Whiskey",
-          "volume": "750ml",
-          "price": "$25",
-          "description": {
-              "alcohol_percentage": "45%",
-              "notes": "Rich, sweet, with a spicy oak finish."
-          }
-      },
-      {
-          "SKU": "003",
-          "category": "Tequila",
-          "manufacturer": "Jose Cuervo",
-          "bottle_name": "Jose Cuervo Especial",
-          "volume": "750ml",
-          "price": "$18",
-          "description": {
-              "alcohol_percentage": "35%",
-              "notes": "Smooth with sweet and woody flavors."
-          }
-      },
-      {
-          "SKU": "004",
-          "category": "Rum",
-          "manufacturer": "Bacardi",
-          "bottle_name": "Bacardi Superior Rum",
-          "volume": "750ml",
-          "price": "$15",
-          "description": {
-              "alcohol_percentage": "40%",
-              "notes": "Clean and crisp with subtle citrus flavors."
-          }
-      },
-      {
-          "SKU": "005",
-          "category": "Whiskey",
-          "manufacturer": "Johnnie Walker",
-          "bottle_name": "Johnnie Walker Black Label",
-          "volume": "750ml",
-          "price": "$40",
-          "description": {
-              "alcohol_percentage": "40%",
-              "notes": "Complex and well-balanced with deep smoky flavors."
-          }
-      },
-      {
-          "SKU": "006",
-          "category": "Vodka",
-          "manufacturer": "Absolut",
-          "bottle_name": "Absolut Vodka",
-          "volume": "750ml",
-          "price": "$20",
-          "description": {
-              "alcohol_percentage": "40%",
-              "notes": "Rich, full-bodied and complex, yet smooth and mellow."
-          }
-      },
-      {
-          "SKU": "007",
-          "category": "Gin",
-          "manufacturer": "Tanqueray",
-          "bottle_name": "Tanqueray London Dry Gin",
-          "volume": "750ml",
-          "price": "$22",
-          "description": {
-              "alcohol_percentage": "47.3%",
-              "notes": "Clear, pungent, and herbal with aggressive flavors."
-          }
-      },
-      {
-          "SKU": "008",
-          "category": "Tequila",
-          "manufacturer": "Patron",
-          "bottle_name": "Patron Silver Tequila",
-          "volume": "750ml",
-          "price": "$45",
-          "description": {
-              "alcohol_percentage": "40%",
-              "notes": "Smooth and sweet with a light pepper finish."
-          }
-      },
-      {
-          "SKU": "009",
-          "category": "Bourbon",
-          "manufacturer": "Jim Beam",
-          "bottle_name": "Jim Beam Bourbon",
-          "volume": "750ml",
-          "price": "$18",
-          "description": {
-              "alcohol_percentage": "40%",
-              "notes": "Oak vanilla, spicy backdrop."
-          }
-      },
-      {
-          "SKU": "010",
-          "category": "Cognac",
-          "manufacturer": "Hennessy",
-          "bottle_name": "Hennessy V.S Cognac",
-          "volume": "750ml",
-          "price": "$30",
-          "description": {
-              "alcohol_percentage": "40%",
-              "notes": "Rich fruit and spice notes framed by freshness."
-          }
-      }
-  ]
-}
+// {
+//   "drinks": [
+//       {
+//           "SKU": "001",
+//           "category": "Vodka",
+//           "manufacturer": "Grey Goose",
+//           "bottle_name": "Grey Goose Vodka",
+//           "volume": "750ml",
+//           "price": "$30",
+//           "description": {
+//               "alcohol_percentage": "40%",
+//               "notes": "Smooth, soft, and balanced with a clean finish."
+//           }
+//       },
+//       {
+//           "SKU": "002",
+//           "category": "Whiskey",
+//           "manufacturer": "Jack Daniels",
+//           "bottle_name": "Jack Daniels Tennessee Whiskey",
+//           "volume": "750ml",
+//           "price": "$25",
+//           "description": {
+//               "alcohol_percentage": "45%",
+//               "notes": "Rich, sweet, with a spicy oak finish."
+//           }
+//       },
+//       {
+//           "SKU": "003",
+//           "category": "Tequila",
+//           "manufacturer": "Jose Cuervo",
+//           "bottle_name": "Jose Cuervo Especial",
+//           "volume": "750ml",
+//           "price": "$18",
+//           "description": {
+//               "alcohol_percentage": "35%",
+//               "notes": "Smooth with sweet and woody flavors."
+//           }
+//       },
+//       {
+//           "SKU": "004",
+//           "category": "Rum",
+//           "manufacturer": "Bacardi",
+//           "bottle_name": "Bacardi Superior Rum",
+//           "volume": "750ml",
+//           "price": "$15",
+//           "description": {
+//               "alcohol_percentage": "40%",
+//               "notes": "Clean and crisp with subtle citrus flavors."
+//           }
+//       },
+//       {
+//           "SKU": "005",
+//           "category": "Whiskey",
+//           "manufacturer": "Johnnie Walker",
+//           "bottle_name": "Johnnie Walker Black Label",
+//           "volume": "750ml",
+//           "price": "$40",
+//           "description": {
+//               "alcohol_percentage": "40%",
+//               "notes": "Complex and well-balanced with deep smoky flavors."
+//           }
+//       },
+//       {
+//           "SKU": "006",
+//           "category": "Vodka",
+//           "manufacturer": "Absolut",
+//           "bottle_name": "Absolut Vodka",
+//           "volume": "750ml",
+//           "price": "$20",
+//           "description": {
+//               "alcohol_percentage": "40%",
+//               "notes": "Rich, full-bodied and complex, yet smooth and mellow."
+//           }
+//       },
+//       {
+//           "SKU": "007",
+//           "category": "Gin",
+//           "manufacturer": "Tanqueray",
+//           "bottle_name": "Tanqueray London Dry Gin",
+//           "volume": "750ml",
+//           "price": "$22",
+//           "description": {
+//               "alcohol_percentage": "47.3%",
+//               "notes": "Clear, pungent, and herbal with aggressive flavors."
+//           }
+//       },
+//       {
+//           "SKU": "008",
+//           "category": "Tequila",
+//           "manufacturer": "Patron",
+//           "bottle_name": "Patron Silver Tequila",
+//           "volume": "750ml",
+//           "price": "$45",
+//           "description": {
+//               "alcohol_percentage": "40%",
+//               "notes": "Smooth and sweet with a light pepper finish."
+//           }
+//       },
+//       {
+//           "SKU": "009",
+//           "category": "Bourbon",
+//           "manufacturer": "Jim Beam",
+//           "bottle_name": "Jim Beam Bourbon",
+//           "volume": "750ml",
+//           "price": "$18",
+//           "description": {
+//               "alcohol_percentage": "40%",
+//               "notes": "Oak vanilla, spicy backdrop."
+//           }
+//       },
+//       {
+//           "SKU": "010",
+//           "category": "Cognac",
+//           "manufacturer": "Hennessy",
+//           "bottle_name": "Hennessy V.S Cognac",
+//           "volume": "750ml",
+//           "price": "$30",
+//           "description": {
+//               "alcohol_percentage": "40%",
+//               "notes": "Rich fruit and spice notes framed by freshness."
+//           }
+//       }
+//   ]
+// }
+
