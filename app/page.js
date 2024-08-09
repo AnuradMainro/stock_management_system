@@ -28,9 +28,7 @@ function Page() {
 
   return (
     <AuthContextProvider>
-      {view === "login" && (
-        <Login onLogin={login} />
-      )}
+      {view === "login" && <Login onLogin={login} />}
       {view === "dashboard" && (
         <Dashboard
           onNavigate={navigateTo}
@@ -48,7 +46,9 @@ function Page() {
       )}
       {view === "stockReports" && (
         <StockReports
-          onSelectCategory={(category) => navigateTo("categoryDrinks", category)}
+          onSelectCategory={(category) =>
+            navigateTo("categoryDrinks", category)
+          }
           onBack={() => navigateTo("dashboard")}
         />
       )}

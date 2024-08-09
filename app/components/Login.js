@@ -33,10 +33,7 @@ function Login({ onLogin }) {
         <div className="bg-transparent p-8 rounded">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label
-                htmlFor="email"
-                className="block text-white text-lg mb-2"
-              >
+              <label htmlFor="email" className="block text-white text-lg mb-2">
                 Login
               </label>
               <input
