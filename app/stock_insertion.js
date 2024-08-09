@@ -34,7 +34,7 @@ function StockInsertion({ onBack }) {
                 }));
                 setDrinks(loadedDrinks);
             }
-        });
+        }); 
     }, []);
 
     const handleAddProduct = (drink) => {
@@ -113,7 +113,7 @@ function StockInsertion({ onBack }) {
                     <ProductRow
                         key={product.firebaseId}
                         id={product.firebaseId}
-                        name={product.name}
+                        name={product.bottle_name}
                         quantity={product.quantity}
                         onIncrement={() => incrementQuantity(product.firebaseId)}
                         onDecrement={() => decrementQuantity(product.firebaseId)}
