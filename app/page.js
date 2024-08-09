@@ -7,7 +7,7 @@ import Dashboard from "./dashboard";
 import ScanAndManage from "./scan_and_manage";
 import StockInsertion from "./stock_insertion";
 import StockReports from "./pages/stock-reports";
-import CategoryDrinks from "./components/CategoryDrinks"; // Ensure this component is created
+import CategoryDrinks from "./components/CategoryDrinks"; // Ensure this component is implemented
 
 function Page() {
   const [view, setView] = useState("login");
@@ -22,13 +22,15 @@ function Page() {
   };
 
   const navigateTo = (page, category = null) => {
-    setSelectedCategory(category); // Set the selected category
+    setSelectedCategory(category); // Set the selected category if needed
     setView(page);
   };
 
   return (
     <AuthContextProvider>
-      {view === "login" && <Login onLogin={login} />}
+      {view === "login" && (
+        <Login onLogin={login} />
+      )}
       {view === "dashboard" && (
         <Dashboard
           onNavigate={navigateTo}
@@ -36,16 +38,17 @@ function Page() {
         />
       )}
       {view === "scanAndManage" && (
-        <ScanAndManage onBack={() => navigateTo("dashboard")} />
+        <ScanAndManage
+          onNavigate={navigateTo} // Passing onNavigate to ScanAndManage
+          onBack={() => navigateTo("dashboard")}
+        />
       )}
       {view === "stockInsertion" && (
         <StockInsertion onBack={() => navigateTo("dashboard")} />
       )}
       {view === "stockReports" && (
         <StockReports
-          onSelectCategory={(category) =>
-            navigateTo("categoryDrinks", category)
-          }
+          onSelectCategory={(category) => navigateTo("categoryDrinks", category)}
           onBack={() => navigateTo("dashboard")}
         />
       )}

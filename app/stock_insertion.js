@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const ProductRow = ({ id, name, onIncrement, onDecrement, onDelete, quantity }) => {
     return (
@@ -16,8 +16,36 @@ const ProductRow = ({ id, name, onIncrement, onDecrement, onDelete, quantity }) 
 };
 
 function StockInsertion({ onBack }) {
-    const [products, setProducts] = useState([]);  // Start with an empty array
-    const [newProductName, setNewProductName] = useState("");
+    const [products, setProducts] = useState([]);
+    const [drinks, setDrinks] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    useEffect(() => {
+        fetch('/drinks.json')
+            .then(response => response.json())
+            .then(data => {
+                setDrinks(data.drinks);
+            })
+            .catch(error => console.error('Error loading drinks data:', error));
+    }, []);
+
+    const handleAddProduct = (drink) => {
+        const newProduct = {
+            id: drink.SKU,
+            name: drink.bottle_name,
+            quantity: 1 // Starts with a default quantity of 1
+        };
+        const productIndex = products.findIndex(product => product.id === newProduct.id);
+        if (productIndex === -1) {
+            setProducts([...products, newProduct]);
+        } else {
+            // Increment the quantity if the product already exists
+            const newProducts = [...products];
+            newProducts[productIndex].quantity += 1;
+            setProducts(newProducts);
+        }
+        setSearchTerm(""); // Clear the search input after adding
+    };
 
     const incrementQuantity = (id) => {
         const newProducts = products.map(product => {
@@ -31,7 +59,7 @@ function StockInsertion({ onBack }) {
 
     const decrementQuantity = (id) => {
         const newProducts = products.map(product => {
-            if (product.id === id && product.quantity > 0) {
+            if (product.id === id && product.quantity > 1) { // Prevents quantity from going below 1
                 return { ...product, quantity: product.quantity - 1 };
             }
             return product;
@@ -44,29 +72,29 @@ function StockInsertion({ onBack }) {
         setProducts(newProducts);
     };
 
-    const addProduct = () => {
-        const newProduct = {
-            id: products.reduce((maxId, product) => Math.max(product.id, maxId), 0) + 1,  // Ensures a unique ID
-            name: newProductName,
-            quantity: 0
-        };
-        setProducts([...products, newProduct]);
-        setNewProductName(""); // Reset the input field
-    };
+    const filteredDrinks = drinks.filter(drink => drink.bottle_name.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
         <div className="min-h-screen bg-purple-800 text-white p-4">
             <div className="flex justify-between items-center mb-4">
                 <input 
                     type="text" 
-                    placeholder="Enter new product name"
+                    placeholder="Enter product name"
                     className="p-2 rounded bg-purple-700 flex-grow"
-                    value={newProductName}
-                    onChange={(e) => setNewProductName(e.target.value)}
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <button onClick={addProduct} className="bg-yellow-600 p-2 ml-2 rounded">Add</button>
                 <button onClick={onBack} className="bg-yellow-600 p-2 ml-2 rounded">Back</button>
             </div>
+            {searchTerm && (
+                <div className="absolute bg-white text-black max-h-40 overflow-auto w-full">
+                    {filteredDrinks.map(drink => (
+                        <div key={drink.SKU} className="p-2 hover:bg-gray-200 cursor-pointer" onClick={() => handleAddProduct(drink)}>
+                            {drink.bottle_name}
+                        </div>
+                    ))}
+                </div>
+            )}
             <div>
                 {products.map((product) => (
                     <ProductRow
