@@ -1,5 +1,6 @@
-"use client";
 import React, { useState, useEffect } from 'react';
+import { getDatabase, ref, onValue, update } from "firebase/database";
+import app from './_utils/firebase';
 
 const ProductRow = ({ id, name, onIncrement, onDecrement, onDelete, quantity }) => {
     return (
@@ -21,35 +22,34 @@ function StockInsertion({ onBack }) {
     const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
-        fetch('/drinks.json')
-            .then(response => response.json())
-            .then(data => {
-                setDrinks(data.drinks);
-            })
-            .catch(error => console.error('Error loading drinks data:', error));
+        const db = getDatabase(app);
+        const drinksRef = ref(db, 'drinks');
+        onValue(drinksRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                const loadedDrinks = Object.keys(data).map(key => ({
+                    ...data[key],
+                    firebaseId: key
+                }));
+                setDrinks(loadedDrinks);
+            }
+        });
     }, []);
 
     const handleAddProduct = (drink) => {
-        const newProduct = {
-            id: drink.SKU,
-            name: drink.bottle_name,
-            quantity: 1 // Starts with a default quantity of 1
-        };
-        const productIndex = products.findIndex(product => product.id === newProduct.id);
-        if (productIndex === -1) {
-            setProducts([...products, newProduct]);
+        const existingProduct = products.find(p => p.firebaseId === drink.firebaseId);
+        if (existingProduct) {
+            existingProduct.quantity++;
+            setProducts([...products]);
         } else {
-            // Increment the quantity if the product already exists
-            const newProducts = [...products];
-            newProducts[productIndex].quantity += 1;
-            setProducts(newProducts);
+            setProducts([...products, { ...drink, quantity: 1, firebaseId: drink.firebaseId }]);
         }
-        setSearchTerm(""); // Clear the search input after adding
+        setSearchTerm('');
     };
 
-    const incrementQuantity = (id) => {
+    const incrementQuantity = (firebaseId) => {
         const newProducts = products.map(product => {
-            if (product.id === id) {
+            if (product.firebaseId === firebaseId) {
                 return { ...product, quantity: product.quantity + 1 };
             }
             return product;
@@ -57,9 +57,9 @@ function StockInsertion({ onBack }) {
         setProducts(newProducts);
     };
 
-    const decrementQuantity = (id) => {
+    const decrementQuantity = (firebaseId) => {
         const newProducts = products.map(product => {
-            if (product.id === id && product.quantity > 1) { // Prevents quantity from going below 1
+            if (product.firebaseId === firebaseId && product.quantity > 1) {
                 return { ...product, quantity: product.quantity - 1 };
             }
             return product;
@@ -67,29 +67,40 @@ function StockInsertion({ onBack }) {
         setProducts(newProducts);
     };
 
-    const handleDelete = (id) => {
-        const newProducts = products.filter(product => product.id !== id);
-        setProducts(newProducts);
+    const handleDelete = (firebaseId) => {
+        setProducts(products.filter(product => product.firebaseId !== firebaseId));
+    };
+
+    const updateData = () => {
+        const db = getDatabase(app);
+        let updates = {};
+        products.forEach(product => {
+            updates[`/drinks/${product.firebaseId}/quantity`] = product.quantity;
+        });
+        update(ref(db), updates)
+            .then(() => alert('Inventory updated successfully!'))
+            .catch(error => {
+                console.error('Failed to update inventory:', error);
+                alert('Failed to update inventory.');
+            });
     };
 
     const filteredDrinks = drinks.filter(drink => drink.bottle_name.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-purple-500 to-[#0F0529] text-white p-4">
-            <div className="flex justify-between items-center mb-4">
-                <input 
-                    type="text" 
-                    placeholder="Enter product name"
-                    className="p-2 rounded bg-white flex-grow"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                <button onClick={onBack} className="bg-yellow-600 p-2 ml-2 rounded">Back</button>
-            </div>
+        <div className="min-h-screen bg-gradient-to-b from-purple-500 to-[#0F0529] text-black p-4">
+            <button onClick={onBack} className="bg-yellow-600 p-2 ml-2 rounded">Back</button>
+            <input 
+                type="text" 
+                placeholder="Enter product name"
+                className="p-2 rounded bg-white flex-grow"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
             {searchTerm && (
                 <div className="absolute bg-white text-black max-h-40 overflow-auto w-full">
                     {filteredDrinks.map(drink => (
-                        <div key={drink.SKU} className="p-2 hover:bg-gray-200 cursor-pointer" onClick={() => handleAddProduct(drink)}>
+                        <div key={drink.firebaseId} className="p-2 hover:bg-gray-200 cursor-pointer" onClick={() => handleAddProduct(drink)}>
                             {drink.bottle_name}
                         </div>
                     ))}
@@ -98,16 +109,17 @@ function StockInsertion({ onBack }) {
             <div>
                 {products.map((product) => (
                     <ProductRow
-                        key={product.id}
-                        id={product.id}
+                        key={product.firebaseId}
+                        id={product.firebaseId}
                         name={product.name}
                         quantity={product.quantity}
-                        onIncrement={() => incrementQuantity(product.id)}
-                        onDecrement={() => decrementQuantity(product.id)}
-                        onDelete={handleDelete}
+                        onIncrement={() => incrementQuantity(product.firebaseId)}
+                        onDecrement={() => decrementQuantity(product.firebaseId)}
+                        onDelete={() => handleDelete(product.firebaseId)}
                     />
                 ))}
             </div>
+            <button onClick={updateData} className="mt-4 bg-yellow-600 p-2 rounded w-full">Receive</button>
         </div>
     );
 }
