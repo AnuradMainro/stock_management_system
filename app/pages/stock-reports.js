@@ -170,7 +170,7 @@ function StockReports({ onBack, onNavigateToLowStock }) {
                 {editingDrinkId === drink.firebaseId ? (
                   <div className="bg-purple-600 p-3 rounded mt-2">
                     <p>
-                      Price: $
+                      Price: 
                       <input
                         type="text"
                         name="price"
@@ -224,7 +224,7 @@ function StockReports({ onBack, onNavigateToLowStock }) {
                   </div>
                 ) : (
                   <div className="bg-purple-600 p-3 rounded mt-2">
-                    <p>Price: ${drink.price}</p>
+                    <p>Price: {drink.price}</p>
                     <p>Quantity: {drink.quantity}</p>
                     <p>Alcohol %: {drink.description.alcohol_percentage}</p>
                     <p>Notes: {drink.description.notes}</p>
@@ -265,7 +265,7 @@ function StockReports({ onBack, onNavigateToLowStock }) {
                 {editingDrinkId === drink.firebaseId ? (
                   <div className="bg-purple-600 p-3 rounded mt-2">
                     <p>
-                      Price: $
+                      Price: 
                       <input
                         type="text"
                         name="price"
@@ -319,7 +319,7 @@ function StockReports({ onBack, onNavigateToLowStock }) {
                   </div>
                 ) : (
                   <div className="bg-purple-600 p-3 rounded mt-2">
-                    <p>Price: ${drink.price}</p>
+                    <p>Price: {drink.price}</p>
                     <p>Quantity: {drink.quantity}</p>
                     <p>Alcohol %: {drink.description.alcohol_percentage}</p>
                     <p>Notes: {drink.description.notes}</p>

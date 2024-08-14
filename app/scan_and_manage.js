@@ -49,6 +49,16 @@ function ScanAndManage({ onBack, onNavigate }) {
     });
   }, []);
 
+  useEffect(() => {
+    if (searchTerm) {
+        const matchedDrink = drinks.find(drink => drink.SKU === searchTerm);
+        if (matchedDrink) {
+            handleAddProduct(matchedDrink);
+            setSearchTerm(""); // Reset search term to prevent repetitive additions
+        }
+    }
+}, [searchTerm, drinks]); // Depend on searchTerm and drinks array
+
   const handleAddProduct = (drink) => {
     const newProduct = {
       id: drink.firebaseId,
@@ -92,23 +102,19 @@ function ScanAndManage({ onBack, onNavigate }) {
     setProducts(products.filter((product) => product.id !== id));
   };
 
-  const updateData = () => {
-    const db = getDatabase(app);
-    let updates = {};
-    products.forEach((product) => {
-      const quantityRef = ref(db, `/drinks/${product.id}/quantity`);
-      onValue(
-        quantityRef,
-        (snapshot) => {
-          const currentQuantity = snapshot.val() || 0;
-          const newQuantity = currentQuantity - product.quantity;
-          if (newQuantity >= 0) {
-            updates[`/drinks/${product.id}/quantity`] = newQuantity;
-          }
-        },
-        { onlyOnce: true }
-      );
-    });
+   const updateData = () => {
+        const db = getDatabase(app);
+        let updates = {};
+        products.forEach(product => {
+            const quantityRef = ref(db, `/drinks/${product.id}/quantity`);
+            onValue(quantityRef, (snapshot) => {
+                const currentQuantity = snapshot.val() || 0;
+                const newQuantity = currentQuantity - product.quantity;
+                if (newQuantity >= 0) {
+                    updates[`/drinks/${product.id}/quantity`] = newQuantity;
+                }
+            }, { onlyOnce: true });
+        });
 
     update(ref(db), updates)
       .then(() => alert("Inventory updated successfully!"))
@@ -175,7 +181,7 @@ function ScanAndManage({ onBack, onNavigate }) {
         onClick={updateData}
         className="mt-4 bg-yellow-600 p-2 rounded w-full"
       >
-        Receive
+        SOLD
       </button>
     </div>
   );
