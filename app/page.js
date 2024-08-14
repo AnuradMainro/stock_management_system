@@ -8,6 +8,7 @@ import ScanAndManage from "./scan_and_manage";
 import StockInsertion from "./stock_insertion";
 import StockReports from "./pages/stock-reports";
 import CategoryDrinks from "./components/CategoryDrinks"; // Ensure this component is implemented
+import LowStockReports from "./pages/LowStockReports"; // Corrected import path
 
 function Page() {
   const [view, setView] = useState("login");
@@ -28,34 +29,21 @@ function Page() {
 
   return (
     <AuthContextProvider>
-      {view === "login" && <Login onLogin={login} />}
-      {view === "dashboard" && (
-        <Dashboard
-          onNavigate={navigateTo}
-          onLogout={() => navigateTo("login")}
-        />
-      )}
-      {view === "scanAndManage" && (
-        <ScanAndManage
-          onNavigate={navigateTo} // Ensuring ScanAndManage has navigation capability
-          onBack={() => navigateTo("dashboard")} // Ensures it can navigate back to the dashboard
-        />
-      )}
-      {view === "stockInsertion" && (
-        <StockInsertion onBack={() => navigateTo("dashboard")} />
-      )}
+      {view === "login" && <Login onLogin={() => navigateTo("dashboard")} />}
+      {view === "dashboard" && <Dashboard onNavigate={navigateTo} onLogout={() => navigateTo("login")} />}
       {view === "stockReports" && (
         <StockReports
-          onSelectCategory={(category) =>
-            navigateTo("categoryDrinks", category)
-          }
+          onNavigateToLowStock={() => navigateTo("lowStockReports")}
           onBack={() => navigateTo("dashboard")}
         />
       )}
+      {view === "lowStockReports" && <LowStockReports onBack={() => navigateTo("dashboard")} />}
+      {view === "scanAndManage" && <ScanAndManage onBack={() => navigateTo("dashboard")} />}
+      {view === "stockInsertion" && <StockInsertion onBack={() => navigateTo("dashboard")} />}
       {view === "categoryDrinks" && (
         <CategoryDrinks
           category={selectedCategory}
-          onBack={() => navigateTo("stockReports")} // Ensure proper back navigation from CategoryDrinks
+          onBack={() => navigateTo("stockReports")}
         />
       )}
     </AuthContextProvider>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getDatabase, ref, onValue, update } from "firebase/database";
 import app from "../_utils/firebase"; // Ensure this path matches your Firebase config import
 
-function StockReports({ onBack }) {
+function StockReports({ onBack, onNavigateToLowStock }) {
   const [drinksByCategory, setDrinksByCategory] = useState({});
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [editingDrinkId, setEditingDrinkId] = useState(null); // To track which drink is being edited
@@ -31,7 +31,7 @@ function StockReports({ onBack }) {
         }
       }
     });
-  }, []);
+  }, [searchTerm]);
 
   const handleEditClick = (drink) => {
     setEditingDrinkId(drink.firebaseId);
@@ -130,6 +130,14 @@ function StockReports({ onBack }) {
         >
           Back
         </button>
+        {selectedCategory === null && (
+          <button
+            onClick={onNavigateToLowStock}
+            className="bg-red-600 p-2 rounded hover:bg-red-700"
+          >
+            View Low Stock
+          </button>
+        )}
         {selectedCategory !== null && (
           <button
             onClick={() => setSelectedCategory(null)}
