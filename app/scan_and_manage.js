@@ -156,4 +156,61 @@ function ScanAndManage({ onBack, onNavigate }) {
       drink.SKU.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  
+  return (
+    <div className="h-screen bg-[#0f0529] text-black p-4">
+      <div className="flex justify-between items-center mb-4">
+        <input
+          type="text"
+          placeholder="Enter product name or SKU"
+          className="p-2 rounded bg-white flex-grow"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button
+          onClick={() => onNavigate("stockInsertion")}
+          className="bg-[#ca8a04] p-2 ml-2 rounded"
+        >
+          Return
+        </button>
+        <button onClick={onBack} className="bg-[#ca8a04] p-2 ml-2 rounded">
+          Back
+        </button>
+      </div>
+      {searchTerm && (
+        <div className="absolute bg-white text-black max-h-40 overflow-auto w-full">
+          {filteredDrinks.map((drink) => (
+            <div
+              key={drink.firebaseId}
+              className="p-2 hover:bg-gray-200 cursor-pointer"
+              onClick={() => handleAddProduct(drink)}
+            >
+              {drink.bottle_name} ({drink.SKU})
+            </div>
+          ))}
+        </div>
+      )}
+      <div>
+        {products.map((product) => (
+          <ProductRow
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            quantity={product.quantity}
+            onIncrement={() => incrementQuantity(product.id)}
+            onDecrement={() => decrementQuantity(product.id)}
+            onDelete={() => handleDelete(product.id)}
+            onQuantityChange={handleQuantityChange}
+          />
+        ))}
+      </div>
+      <button
+        onClick={updateData}
+        className="mt-4 bg-[#ca8a04] p-2 rounded w-full"
+      >
+        SOLD
+      </button>
+    </div>
+  );
+}
+
+export default ScanAndManage;
