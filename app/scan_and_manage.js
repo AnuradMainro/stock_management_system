@@ -71,6 +71,15 @@ function ScanAndManage({ onBack, onNavigate }) {
     });
   }, []);
 
+  useEffect(() => {
+    if (searchTerm.length > 0) {
+        const matchedDrink = drinks.find(drink => drink.SKU === searchTerm);
+        if (matchedDrink) {
+            handleAddProduct(matchedDrink);
+        }
+    }
+}, [searchTerm, drinks]);
+
   const handleAddProduct = (drink) => {
     const newProduct = {
       id: drink.firebaseId,
