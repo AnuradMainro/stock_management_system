@@ -38,7 +38,7 @@ function Page() {
         />
       )}
       {view === "lowStockReports" && <LowStockReports onBack={() => navigateTo("dashboard")} />}
-      {view === "scanAndManage" && <ScanAndManage onBack={() => navigateTo("dashboard")} />}
+      {view === "scanAndManage" && <ScanAndManage onBack={() => navigateTo("dashboard")} onNavigate={navigateTo} />}
       {view === "stockInsertion" && <StockInsertion onBack={() => navigateTo("dashboard")} />}
       {view === "categoryDrinks" && (
         <CategoryDrinks
