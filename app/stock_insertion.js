@@ -181,7 +181,7 @@ function StockInsertion({ onBack }) {
               className="p-2 hover:bg-gray-200 cursor-pointer"
               onClick={() => handleAddProduct(drink)}
             >
-              {drink.bottle_name} ({drink.SKU})
+              {drink.bottle_name} {/* Display only the product name */}
             </div>
           ))}
         </div>
@@ -208,6 +208,7 @@ function StockInsertion({ onBack }) {
       </button>
     </div>
   );
+
 }
 
 export default StockInsertion;
